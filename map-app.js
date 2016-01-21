@@ -11,7 +11,8 @@ var labelCountries = {
 
 var projection = d3.geo.cylindricalEqualArea()
   .scale(800)
-  .translate([-400, 840]);
+  .translate([-400, 840])
+  .precision(0.0001);
 
 var path = d3.geo.path()
   .projection(projection);
@@ -25,22 +26,35 @@ d3.json("countries.geo.json", function(error, countries) {
     throw error;
   }
 
+  var highlighted = [];
+
   svg.selectAll("svg")
     .data(countries.features)
     .enter()
     .append("path")
     .attr("class", function(d) {
       if (labelCountries[d.properties.name]) {
-        if (d.properties.name === "Nepal") {
-          return "country nepal";
-        } else {
-          return "country highlight";
-        }
+        highlighted.push(d);
       } else {
         return "country";
       }
     })
     .attr("d", path);
+
+    svg.selectAll("svg")
+      .data(highlighted)
+      .enter()
+      .append("path")
+      .attr("class", function(d) {
+        if (d.properties.name === "Nepal") {
+          return "country nepal";
+        } else if (d.properties.name === "United Arab Emirates") {
+            return "country uae";
+        } else {
+          return "country highlight";
+        }
+      })
+      .attr("d", path);
 
   svg.selectAll(".subunit-label")
       .data(countries.features)

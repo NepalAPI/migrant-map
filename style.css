@@ -11,6 +11,11 @@ html, body, svg {
   stroke-width: 1.5px;
 }
 
+.boldcountry {
+  z-index: 999;
+  fill: #000;
+}
+
 .highlight {
   fill: #ccf;
   stroke: #000;
@@ -19,6 +24,12 @@ html, body, svg {
 
 .nepal {
   fill: #f00;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.uae {
+  fill: #afa;
   stroke: #000;
   stroke-width: 1.5px;
 }
