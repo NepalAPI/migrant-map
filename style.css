@@ -1,0 +1,32 @@
+html, body, svg {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: #8ccbf7;
+}
+
+.country {
+  fill: #fff;
+  stroke: #aaa;
+  stroke-width: 1.5px;
+}
+
+.highlight {
+  fill: #ccf;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.nepal {
+  fill: #f00;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.subunit-label {
+  font-family: arial, sans-serif;
+  fill: #000;
+  font-size: 17px;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
