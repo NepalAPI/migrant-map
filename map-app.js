@@ -3,7 +3,7 @@ var width = 1400,
   height = 1600;
 
 var labelCountries = {
-  'United Arab Emirates': 'संयुक्त अरब इमिरेट्स',
+  'Qatar': 'कतार',
   'Saudi Arabia': 'साउदी अरब',
   'Nepal': 'नेपाल',
   'Malaysia': 'मलेशिया'
@@ -49,7 +49,9 @@ d3.json("countries.geo.json", function(error, countries) {
         if (d.properties.name === "Nepal") {
           return "country nepal";
         } else if (d.properties.name === "United Arab Emirates") {
-            return "country uae";
+          return "country uae";
+        } else if (d.properties.name === "Qatar") {
+          return "country qatar";
         } else {
           return "country highlight";
         }
@@ -65,9 +67,10 @@ d3.json("countries.geo.json", function(error, countries) {
         return labelCountries[d.properties.name] || '';
       })
       .attr("dy", function(d) {
-        if (d.properties.name === 'United Arab Emirates') {
-          return '-50px';
-        } else if (d.properties.name === 'Nepal') {
+        var name = d.properties.name;
+        if (name === 'United Arab Emirates' || name === 'Qatar') {
+          return '-20px';
+        } else if (name === 'Nepal') {
           return '-30px';
         }
         return '0px';
